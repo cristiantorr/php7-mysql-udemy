@@ -1,5 +1,1 @@
-<?php //phpinfo();?>
-<?php 
-print "HELLO WORLD, PHP <br />";
-echo "Primera vez";
-?>
+<?php print "Hello world curso php"?>
