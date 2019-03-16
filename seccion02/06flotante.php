@@ -18,6 +18,19 @@
             <li>Comprobar la igualdad de valores de punto flotante es problemático debido a la forma en que se representan internamente. Sin embargo, hay maneras de hacer comparaciones de los valores de punto flotante que evitan estas limitaciones.</li>
             <li>Para comprobar la igualdad de valores de punto flotante, se utiliza un límite superior en el error relativo debido al redondeo.Este valor se conoce como el épsilon de la máquina o unidad de redondeo, y es la menor diferencia aceptable en los cálculos.</li>
         </ul>
+        <h2>Ejemplos:</h2>
+        <?php 
+            $a = 1234.5678;
+            $a = 12345.2e4;
+            $a = 7E-10;
+
+            $e = 1.23456789;
+            $d = 1.2345678901;
+            $epsilon = 0.000001;
+
+            if(abs($e-$d)<$epsilon) print "Son iguales";
+            else print "Son diferentes";
+        ?>
     </div>
 </body>
 </html>

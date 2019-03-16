@@ -27,6 +27,18 @@
             <li>\" comillas dobles</li>
         </ul>
         <p>NOTA: Hay que tener en cuenta que no todos los navegadores soportan los escapes de cadena por eso se coloca las etiquetas "<br />" para hacer un salto en línea</p>
+
+        <h2>Ejemplos:</h2>
+        <?php 
+$nombre = "James Bond";
+$agente = "007";
+$titulo = "Agente al servicio de su \"majestad\"";
+$salida = $nombre." Num. Agente: ";
+/* $salida .= $agente.". \n";  No todos los navegadores actualmente soportan el escape, por eso se pone <br> */
+$salida .= $agente."<br />";
+$salida .= $titulo;
+print $salida;
+?>
     </div>
 </body>
 </html>
