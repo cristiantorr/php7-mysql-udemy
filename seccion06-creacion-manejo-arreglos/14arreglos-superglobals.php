@@ -8,9 +8,17 @@
 </head>
 <body>
     <div style="width:850px; margin: 0 auto;">
-        <h1>ARREGLOS SUPERGLOBALS</h1>
+        <h1>ARREGLOS SUPERGLOBALS<small>Las variables globales son:</small></h1>
         <ul>
-           <li></li>
+           <li>$GLOBALS</li>
+           <li>$_SERVER</li>
+           <li>$_REQUEST</li>
+           <li>$_POST</li>
+           <li>$_GET</li>
+           <li>$_FILES</li>
+           <li>$_ENV</li>
+           <li>$_COOKIE</li>
+           <li>$_SESSION</li>
         </ul>
         <h2>Ejemplos:</h2>
         <?php  

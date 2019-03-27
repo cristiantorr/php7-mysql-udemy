@@ -10,7 +10,12 @@
     <div style="width:850px; margin: 0 auto;">
         <h1>ARREGLOS SORT</h1>
         <ul>
-           <li></li>
+           <li>SORT_REGULAR - compara elementos normalmente (no cambia los tipos)</li>
+           <li>SORT_NUMERIC - compara elementos de forma numérica</li>
+           <li>SORT_STRING - compara elementos como cadenas</li>
+           <li>SORT_LOCALE_STRING - compara elementos como cadenas, basándose en la configuración regional en uso. Utiliza la configuración regional, la cual puede cambiarse usando setlocale().</li>
+           <li>SORT_NATURAL - compara elementos como cadenas usando el "orden natural" de la misma forma que natsort().</li>
+           <li>SORT_FLAG_CASE - se puede combinar (OR a nivel de bits) con SORT_STRING o SORT_NATURAL para ordenar cadenas de forma insensible a mayúsculas/minúsculas.</li>
         </ul>
         <h2>Ejemplos:</h2>
         <?php  
@@ -36,7 +41,7 @@
             foreach ($meses as $key => $value) {
                 print "<p>Meses[".$key."] = ".$value."</p>";
             }
-
+            //se ordena SORT_FLAG_CASE mayuscula y minuscula alfabeto
             sort($alumnos, SORT_NATURAL | SORT_FLAG_CASE);
             foreach ($alumnos as $key => $value) {
                 print "<p>Alumnos[".$key."] = ".$value."</p>";

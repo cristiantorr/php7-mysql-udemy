@@ -15,10 +15,10 @@
         <h2>Ejemplos:</h2>
         <?php  
             $empleado = array(
-                "nombre" => "James",
+                "nombre"    => "James",
                 "apellidos" => "Bond",
-                "edad" => 40,
-                "num" => "007"
+                "edad"      => 40,
+                "num"       => "007"
             );
             print "Nombre: ".$empleado["nombre"]." ".$empleado["apellidos"];
             foreach ($empleado as $llave => $valor) {
