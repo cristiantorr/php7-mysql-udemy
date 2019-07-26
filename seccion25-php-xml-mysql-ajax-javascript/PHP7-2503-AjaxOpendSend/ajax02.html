@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax02</title>
+	<meta charset="utf-8">
+	<script>
+		window.onload = function() {
+			document.getElementById("carga").onclick = cargaArchivo;
+		}
+		function cargaArchivo(){
+			var xmlhttp;
+			if (window.XMLHttpRequest) {
+				xmlhttp = new XMLHttpRequest();
+				alert("El navegador si soporta XMLHTTP");
+			} else {
+				//IE 5y6
+				xmlhttp = new ActiveXObject("Microsoft.HMLHTTP");
+				alert("Tu navegador no soporta XMLHTTP");
+			}
+			//GET o POST, url, true=>Asincrono false=>Sincrono
+			xmlhttp.open("GET","ajax.txt",true);
+			//Ejecutamos la lectura
+			xmlhttp.send();
+		}
+	</script>
+</head>
+<body>
+<div id="salida"><h2>Pulsa el botón para leer el archivo de texto de AJAX</h2>
+<button id="carga">Cargar archivo</button>
+</div>
+</body>
+</html>

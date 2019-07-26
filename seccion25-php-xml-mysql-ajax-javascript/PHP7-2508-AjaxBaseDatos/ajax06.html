@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax06 conexion con PHP a la base de datos</title>
+	<meta charset="utf-8">
+	<script>
+		function buscaAlumnos(p){
+			if (p.length==0) {
+				document.getElementById("alumnos").innerHTML = "";
+				return;
+			}
+			var xmlhttp;
+			if (window.XMLHttpRequest) {
+				xmlhttp = new XMLHttpRequest();
+				//alert("El navegador si soporta XMLHTTP");
+			} else {
+				//IE 5y6
+				xmlhttp = new ActiveXObject("Microsoft.HMLHTTP");
+				alert("Tu navegador no soporta XMLHTTP");
+			}
+			xmlhttp.onreadystatechange = function(){
+				//console.log(xmlhttp.readyState,xmlhttp.status);
+				if(xmlhttp.readyState==4){
+					if(xmlhttp.status==200){
+						//Vaciamos la información en salida
+						document.getElementById("alumnos").innerHTML=xmlhttp.responseText;
+					} else {
+						document.getElementById("alumnos").innerHTML="<p>Error en el proceso de lectura del archivo. Error "+xmlhttp.status;
+					}
+					
+				}
+			}
+			//GET o POST, url, true=>Asincrono false=>Sincrono
+			xmlhttp.open("GET","alumnos.php?q="+p,true);
+			//Ejecutamos la lectura
+			xmlhttp.send();
+		}
+	</script>
+</head>
+<body>
+<button onclick="buscaAlumnos('A')">A</button>
+<button onclick="buscaAlumnos('B')">B</button>
+<button onclick="buscaAlumnos('C')">C</button>
+<button onclick="buscaAlumnos('D')">D</button>
+<button onclick="buscaAlumnos('E')">E</button>
+<button onclick="buscaAlumnos('F')">F</button>
+<p>Alumnos:<br><span id="alumnos"></span></p>
+</div>
+</body>
+</html>

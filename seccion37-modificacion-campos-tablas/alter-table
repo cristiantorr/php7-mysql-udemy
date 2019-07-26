@@ -1,0 +1,96 @@
+/* alter table */
+Instrucción SQL ALTER TABLE
+La sentencia ALTER TABLE se utiliza para agregar, eliminar o modificar las columnas en una tabla existente.
+
+La sentencia ALTER TABLE también se utiliza para añadir y soltar varias restricciones en una tabla existente.
+
+ALTER TABLE - Agregar columna
+Para agregar una columna de una tabla, utilice la siguiente sintaxis:
+
+ALTER TABLE table_name
+ADD column_name datatype;
+
+Ejemplo
+ALTER TABLE Customers
+ADD Email varchar(255);
+
+---
+
+ALTER TABLE - DROP COLUMN
+
+Para eliminar una columna de una tabla, utilice la siguiente sintaxis (nótese que algunos sistemas de bases de datos no permiten la eliminación de una columna):
+
+ALTER TABLE table_name
+DROP COLUMN column_name;
+
+El siguiente código SQL borra la columna "Correo electrónico" de la tabla "clientes":
+
+Ejemplo
+ALTER TABLE Customers
+DROP COLUMN Email;
+
+-----
+
+ALTER TABLE - ALTER / MODIFICAR COLUMNA
+Para cambiar el tipo de datos de una columna de una tabla, utilice la siguiente sintaxis:
+
+SQL Server / MS Access:
+
+ALTER TABLE table_name
+ALTER COLUMN column_name datatype;
+My SQL / Oracle (versión anterior 10G):
+
+ALTER TABLE table_name
+MODIFY COLUMN column_name datatype;
+Oracle 10G y posterior:
+
+ALTER TABLE table_name
+MODIFY column_name datatype;
+
+---
+
+ALTER TABLE Ejemplo SQL
+Mire la tabla "Personas":
+
+ID	LastName	FirstName	Address	City
+1	Hansen	Ola	Timoteivn 10	Sandnes
+2	Svendson	Tove	Borgvn 23	Sandnes
+3	Pettersen	Kari	Storgt 20	Stavanger
+Ahora queremos añadir una columna denominada "DateOfBirth" en la tabla "Personas".
+
+Nosotros usamos la siguiente instrucción SQL:
+
+ALTER TABLE Persons
+ADD DateOfBirth date;
+Observe que la nueva columna, "DateOfBirth", es de tipo fecha y se va a celebrar una fecha. El tipo de datos especifica qué tipo de datos puede contener la columna. Para una referencia completa de todos los tipos de datos disponibles en MS Access, MySQL y SQL Server, vaya a nuestra completa referencia de tipos de datos .
+
+La tabla "Personas" ahora se verá así:
+
+ID	LastName	FirstName	Address	City	DateOfBirth
+1	Hansen	Ola	Timoteivn 10	Sandnes	 
+2	Svendson	Tove	Borgvn 23	Sandnes	 
+3	Pettersen	Kari	Storgt 20	Stavanger	 
+Ejemplo de datos modificados Tipo
+Ahora queremos cambiar el tipo de datos de la columna denominada "DateOfBirth" en la tabla "Personas".
+
+Nosotros usamos la siguiente instrucción SQL:
+
+ALTER TABLE Persons
+ALTER COLUMN DateOfBirth year;
+Observe que la columna "DateOfBirth" es ahora del tipo y año se va a celebrar un año en un formato de dos o cuatro dígitos.
+
+-----
+
+DROP COLUMN Ejemplo
+A continuación, queremos eliminar la columna denominada "DateOfBirth" en la tabla "Personas".
+
+Nosotros usamos la siguiente instrucción SQL:
+
+ALTER TABLE Persons
+DROP COLUMN DateOfBirth;
+La tabla "Personas" ahora se verá así:
+
+ID	LastName	FirstName	Address	City
+1	Hansen	Ola	Timoteivn 10	Sandnes
+2	Svendson	Tove	Borgvn 23	Sandnes
+3	Pettersen	Kari	Storgt 20	Stavanger

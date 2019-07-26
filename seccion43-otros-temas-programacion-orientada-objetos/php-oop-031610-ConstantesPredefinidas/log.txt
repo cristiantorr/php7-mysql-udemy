@@ -1,0 +1,1 @@
+13-03-2019- 09:27:41 ::: Error, debes de indicar la variable 'huevos'error en el archivo: C:\xampp\htdocs\0404-PHP-OOP\php-oop-031610-ConstantesPredefinidas\constantesPredefinidas.php, en la linea: 46, en la clase: Reptil, en el metodo: Oviparo::getHuevos, en el trazo: Oviparo, en el espacio de nombres: 

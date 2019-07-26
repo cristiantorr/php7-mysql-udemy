@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax04</title>
+	<meta charset="utf-8">
+	<script>
+		window.onload = function() {
+			document.getElementById("carga").onclick = cargaArchivo;
+		}
+		function cargaArchivo(){
+			var xmlhttp;
+			if (window.XMLHttpRequest) {
+				xmlhttp = new XMLHttpRequest();
+				//alert("El navegador si soporta XMLHTTP");
+			} else {
+				//IE 5y6
+				xmlhttp = new ActiveXObject("Microsoft.HMLHTTP");
+				alert("Tu navegador no soporta XMLHTTP");
+			}
+			xmlhttp.onreadystatechange = function(){
+				console.log(xmlhttp.readyState,xmlhttp.status);
+				if(xmlhttp.readyState==4){
+					if(xmlhttp.status==200){
+						//Vaciamos la información en salida
+						document.getElementById("salida").innerHTML=xmlhttp.responseText;
+					} else {
+						document.getElementById("salida").innerHTML="<p>Error en el proceso de lectura del archivo. Error "+xmlhttp.status;
+					}
+					
+				}
+			}
+			//GET o POST, url, true=>Asincrono false=>Sincrono
+			xmlhttp.open("GET","ajax.txt",true);
+			//Ejecutamos la lectura
+			xmlhttp.send();
+		}
+	</script>
+</head>
+<body>
+<div id="salida"><h2>Pulsa el botón para leer el archivo de texto de AJAX</h2>
+<button id="carga">Cargar archivo</button>
+</div>
+</body>
+</html>

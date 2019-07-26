@@ -1,0 +1,6 @@
+1	ActionScript
+2	PHP
+3	MySQL
+4	Photoshop
+5	Dreamweaver
+6	Flash

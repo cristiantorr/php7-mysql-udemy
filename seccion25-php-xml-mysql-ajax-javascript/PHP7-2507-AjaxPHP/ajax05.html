@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax05 conexion con PHP</title>
+	<meta charset="utf-8">
+	<script>
+		function listaPaises(p){
+			if (p.length==0) {
+				document.getElementById("sugerencias").innerHTML = "";
+				return;
+			}
+			var xmlhttp;
+			if (window.XMLHttpRequest) {
+				xmlhttp = new XMLHttpRequest();
+				//alert("El navegador si soporta XMLHTTP");
+			} else {
+				//IE 5y6
+				xmlhttp = new ActiveXObject("Microsoft.HMLHTTP");
+				alert("Tu navegador no soporta XMLHTTP");
+			}
+			xmlhttp.onreadystatechange = function(){
+				//console.log(xmlhttp.readyState,xmlhttp.status);
+				if(xmlhttp.readyState==4){
+					if(xmlhttp.status==200){
+						//Vaciamos la información en salida
+						document.getElementById("sugerencias").innerHTML=xmlhttp.responseText;
+					} else {
+						document.getElementById("salida").innerHTML="<p>Error en el proceso de lectura del archivo. Error "+xmlhttp.status;
+					}
+					
+				}
+			}
+			//GET o POST, url, true=>Asincrono false=>Sincrono
+			xmlhttp.open("GET","paises.php?q="+p,true);
+			//Ejecutamos la lectura
+			xmlhttp.send();
+		}
+	</script>
+</head>
+<body>
+País: <input type="text" name="pais" id="pais" onKeyUp="listaPaises(this.value)"/>
+<p>Sugerencias: <span id="sugerencias"></span><p>
+</div>
+</body>
+</html>

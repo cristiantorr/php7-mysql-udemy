@@ -1,0 +1,68 @@
+/* Algunas sentencias sql con select*/
+
+SELECT * FROM table_name;
+SELECT CustomerName, City FROM Customers;
+SELECT DISTINCT Country FROM Customers;
+SELECT COUNT(DISTINCT Country) FROM Customers;
+SELECT Count(*) AS DistinctCountries
+FROM (SELECT DISTINCT Country FROM Customers);
+
+/*select con where */
+
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+
+
+SELECT * FROM Customers
+WHERE Country='Mexico';
+
+SELECT * FROM Customers
+WHERE CustomerID=1;
+
+/* like */
+
+SELECT * FROM Customers
+WHERE City LIKE 's%';
+
+/* between*/
+SELECT * FROM Products
+WHERE Price BETWEEN 50 AND 60;
+
+/* AND , OR, NOT*/
+SELECT * FROM Customers
+WHERE Country='Germany' AND City='Berlin';
+
+SELECT * FROM Customers
+WHERE City='Berlin' OR City='München';
+
+SELECT * FROM Customers
+WHERE NOT Country='Germany';
+
+/*  AVG, MAX, MIN, COUNT*/
+
+La función COUNT () devuelve el número de filas que se ajuste a los criterios especificados.
+
+La función AVG () devuelve el valor medio de una columna numérica.
+
+La función SUM () devuelve la suma total de una columna numérica.
+
+
+SELECT COUNT(ProductID)
+FROM Products;
+
+SELECT MIN(Price) AS SmallestPrice
+FROM Products;
+
+SELECT MAX(Price) AS LargestPrice
+FROM Products;
+
+/* SUM, AVG, STDDEV*/
+SELECT AVG(Price)
+FROM Products;
+
+SELECT SUM(Quantity)
+FROM OrderDetails;
+
+SELECT STDEV(Bonus)  
+FROM Sales.SalesPerson;  
